@@ -21,4 +21,17 @@ Generate AWS YAML file /config/aws.yml
     AWS_SECRET_ACCESS_KEY: {secret_acces_key}'
 
 Start with 'ruby bin/rails server'
+
+This also requires a S3 bucket set up with CORS setup with the CORS XML below:
+'<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <CORSRule>
+    <AllowedOrigin>*</AllowedOrigin>
+    <AllowedMethod>GET</AllowedMethod>
+    <AllowedMethod>POST</AllowedMethod>
+    <AllowedMethod>PUT</AllowedMethod>
+    <AllowedHeader>*</AllowedHeader>
+  </CORSRule>
+</CORSConfiguration>'
+
 <tt>rake doc:app</tt>.
