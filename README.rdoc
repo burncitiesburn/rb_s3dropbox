@@ -1,28 +1,24 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+How to start:
+Install Ruby 1.9.3
+Install Ruby DevKit
 
-Things you may want to cover:
+run - 'gem install rails'
+run - 'bundle install'
 
-* Ruby version
+Generate secrets YAML file /config/secrets.yml
+  With Structure:
+        'development:
+          secret_key_base: { key }
+          '
+Generate secret base from 'rake secret'
 
-* System dependencies
+Generate AWS YAML file /config/aws.yml
+  With Structure:
+    'S3_BUCKET: {bucketname}
+    AWS_ACCESS_KEY_ID: {access_key}
+    AWS_SECRET_ACCESS_KEY: {secret_acces_key}'
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
+Start with 'ruby bin/rails server'
 <tt>rake doc:app</tt>.
