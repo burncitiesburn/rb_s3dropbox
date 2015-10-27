@@ -2,7 +2,7 @@
 
 <h1>Listing File Shares</h1>
 
-<table>
+<table class="table" >
   <thead>
     <tr>
       <th>User</th>
@@ -14,11 +14,9 @@
   <tbody>
     <% @file_shares.each do |file_share| %>
       <tr>
-        <td><%= file_share.user %></td>
-        <td><%= file_share.file_url %></td>
-        <td><%= link_to 'Show', file_share %></td>
-        <td><%= link_to 'Edit', edit_file_share_path(file_share) %></td>
-        <td><%= link_to 'Destroy', file_share, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td ><%= file_share.user %></td>
+        <td ><%= file_share.file_url %></td>
+        <td ><%= link_to 'Delete', file_share, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -29,9 +29,11 @@ class FileSharesController < ApplicationController
 
     respond_to do |format|
       if @file_share.save
-        format.html { redirect_to @file_share, notice: 'File share was successfully created.' }
+        flash[:success] = 'File share was successfully created.'
+        format.html { redirect_to @file_share }
         format.json { render :show, status: :created, location: @file_share }
       else
+        flash[:danger] = 'There was a problem creating the file share'
         format.html { render :new }
         format.json { render json: @file_share.errors, status: :unprocessable_entity }
       end
@@ -43,9 +45,11 @@ class FileSharesController < ApplicationController
   def update
     respond_to do |format|
       if @file_share.update(file_share_params)
-        format.html { redirect_to @file_share, notice: 'File share was successfully updated.' }
+        flash[:success] = 'File share was successfully updated'
+        format.html { redirect_to @file_share }
         format.json { render :show, status: :ok, location: @file_share }
       else
+        flash[:danger] = 'There was a problem creating the file share'
         format.html { render :edit }
         format.json { render json: @file_share.errors, status: :unprocessable_entity }
       end
@@ -57,7 +61,8 @@ class FileSharesController < ApplicationController
   def destroy
     @file_share.destroy
     respond_to do |format|
-      format.html { redirect_to file_shares_url, notice: 'File share was successfully destroyed.' }
+        flash[:success] = 'File share was successfully destoryed'
+        format.html { redirect_to @file_share }
       format.json { head :no_content }
     end
   end

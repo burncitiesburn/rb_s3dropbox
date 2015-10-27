@@ -11,15 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user %><br>
-    <%= f.text_field :user %>
+  <div class="field form-group">
+    <%= f.label :user, class: 'col-sm-2 control label'  %>
+    <div class="col-sm-10">
+      <%= f.text_field :user %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :file_url %><br>
-    <%= f.file_field :file_url %>
+  <div class="field form-group">
+    <%= f.label :file_url, class: 'col-sm-2 control-label' %>
+     <div class="col-sm-10">
+        <%= f.file_field :file_url, class: 'form-control' %>
+     </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit %>
+    </div>
   </div>
 <% end %>

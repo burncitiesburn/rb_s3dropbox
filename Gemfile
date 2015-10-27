@@ -29,6 +29,22 @@ gem 'coffee-script-source', '1.8.0'
 #we need AWS SDK so that we can use s3
 gem 'aws-sdk', '~> 2'
 
+#lets include bootstrap to pretty this thing up
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
+#bind jquery to the turbolinks page loads
+gem 'jquery-turbolinks'
+
+
+
+
+
+
+
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
