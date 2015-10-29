@@ -15,7 +15,7 @@
     <% @file_shares.each do |file_share| %>
       <tr>
         <td ><%= file_share.user %></td>
-        <td ><%= file_share.file_url %></td>
+        <td ><a href="<%= file_share.file_url %>"><%= file_share.file_url %></a></td>
         <td ><%= link_to 'Delete', file_share, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

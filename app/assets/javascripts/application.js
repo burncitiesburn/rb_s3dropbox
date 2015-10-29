@@ -55,10 +55,15 @@ $(function() {
         // extract key and generate URL from response
         var key   = $(data.jqXHR.responseXML).find("Key").text();
         var url   = 'http://' + form.data('host') + '/' + key;
-
-        // create hidden field
-        var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: url })
-        form.append(input);
+         $.ajax({ method: "POST",
+                   url: '/get-presigned/',
+                    data:{'key': key}
+         })
+          .done(function(data){
+             var input = $("<input />", { type:'hidden', name: fileInput.attr('name'), value: data })
+              form.append(input);
+          });
+       
       },
       fail: function(e, data) {
         submitButton.prop('disabled', false);

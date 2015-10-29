@@ -21,6 +21,11 @@ class FileSharesController < ApplicationController
   # GET /file_shares/1/edit
   def edit
   end
+  
+  def create_presigned
+    url = PRESIGNER.presigned_url(:get_object, bucket: S3BUCKET, key: params[:key], expires_in: 7*24*60*3600);
+    render text: url;
+  end
 
   # POST /file_shares
   # POST /file_shares.json
@@ -75,7 +80,7 @@ class FileSharesController < ApplicationController
 
     #setup function to allow users to direct post to s3 bucket
     def set_s3_direct_post
-      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+      @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'authenticated-read')
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
