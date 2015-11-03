@@ -23,7 +23,7 @@ class FileSharesController < ApplicationController
   end
   
   def create_presigned
-    url = PRESIGNER.presigned_url(:get_object, bucket: S3BUCKET, key: params[:key], expires_in: 7*24*60*3600);
+    url = PRESIGNER.presigned_url(:get_object, bucket: S3BUCKET, key: params[:key], expires_in: 3600);
     render text: url;
   end
 
@@ -66,6 +66,7 @@ class FileSharesController < ApplicationController
   def destroy
     @file_share.destroy
     respond_to do |format|
+      
         flash[:success] = 'File share was successfully destoryed'
         format.html { redirect_to @file_share }
       format.json { head :no_content }
